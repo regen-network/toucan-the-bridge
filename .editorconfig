@@ -1,0 +1,20 @@
+root = true
+
+[*]
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.{js,jsx,ts,tsx,json}]
+indent_style = tab
+indent_size = 2
+max_line_length = 110
+
+[*.sol]
+max_line_length = 96
+# https://docs.soliditylang.org/en/v0.8.13/style-guide.html
+
+[*.{md,rst}]
+trim_trailing_whitespace = false
+

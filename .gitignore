@@ -1,15 +1,14 @@
-# Binaries for programs and plugins
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
+node_modules
+.env
+coverage
+coverage.json
+typechain
 
-# Test binary, built with `go test -c`
-*.test
+# yarn files
+.yarn
 
-# Output of the go coverage tool, specifically when used with LiteIDE
-*.out
 
-# Dependency directories (remove the comment below to include it)
-# vendor/
+# Hardhat files
+cache
+artifacts
+.log
