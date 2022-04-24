@@ -8963,26 +8963,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"regen-toucan-bridge@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "regen-toucan-bridge@workspace:."
-  dependencies:
-    "@nomiclabs/hardhat-ethers": ^2.0.5
-    "@nomiclabs/hardhat-waffle": ^2.0.3
-    "@openzeppelin/contracts": ^4.5.0
-    "@openzeppelin/contracts-upgradeable": ^4.5.2
-    chai: ^4.3.6
-    ethereum-waffle: ^3.4.4
-    ethers: ^5.6.2
-    hardhat: ^2.9.2
-    husky: ^7.0.4
-    lint-staged: ^12.3.7
-    prettier: ^2.6.2
-    prettier-plugin-solidity: ^1.0.0-beta.19
-    solhint: ^3.3.7
-  languageName: unknown
-  linkType: soft
-
 "regenerate@npm:^1.2.1":
   version: 1.4.2
   resolution: "regenerate@npm:1.4.2"
@@ -10420,6 +10400,26 @@ __metadata:
   checksum: b6937a38c80c7f84d9c11dd75e49d5c44f71d95e810a3250bd1f1797fc7117c57698204adf676b71497acc205d769d65c16ae8fa10afad832ae1322630aef10a
   languageName: node
   linkType: hard
+
+"the-bridge-toucan-regen@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "the-bridge-toucan-regen@workspace:."
+  dependencies:
+    "@nomiclabs/hardhat-ethers": ^2.0.5
+    "@nomiclabs/hardhat-waffle": ^2.0.3
+    "@openzeppelin/contracts": ^4.5.0
+    "@openzeppelin/contracts-upgradeable": ^4.5.2
+    chai: ^4.3.6
+    ethereum-waffle: ^3.4.4
+    ethers: ^5.6.2
+    hardhat: ^2.9.2
+    husky: ^7.0.4
+    lint-staged: ^12.3.7
+    prettier: ^2.6.2
+    prettier-plugin-solidity: ^1.0.0-beta.19
+    solhint: ^3.3.7
+  languageName: unknown
+  linkType: soft
 
 "through2@npm:^2.0.3":
   version: 2.0.5

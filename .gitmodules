@@ -1,0 +1,3 @@
+[submodule "contracts/toucan-contracts"]
+	path = contracts/toucan-contracts
+	url = git@github.com:regen-network/toucan-contracts.git
