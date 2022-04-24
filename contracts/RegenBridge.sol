@@ -14,7 +14,7 @@ import "./axelar/IAxelarGateway.sol";
  *
  * See README file for more information about the functionality
  */
-contract ToucanBridge is Ownable, Pausable {
+contract RegenBridge is Ownable, Pausable {
     IToucanContractRegistry public nctoRegistry;
     IAxelarGateway public axelarGateway;
 
