@@ -18,6 +18,13 @@ contract RegenBridge is Ownable, Pausable {
     IToucanContractRegistry public nctoRegistry;
     IAxelarGateway public axelarGateway;
 
+    struct ToucanPayload {
+        string recipient;
+        address tco2ContractAddress;
+        uint256 amount;
+        string note;
+    }
+
     /** @dev total amount of tokens burned and signalled for transfer */
     uint256 public totalTransferred;
 
@@ -62,8 +69,8 @@ contract RegenBridge is Ownable, Pausable {
             "contract not part of the Toucan NCT registry"
         );
         tco2.retireFrom(msg.sender, amount);
-        // TODO: serialize the message
-        axelarGateway.callContract("regen-ledger", "regen_toucan_bridge", bytes(""));
+        ToucanPayload memory p = ToucanPayload(recipient, address(tco2), amount, note);
+        axelarGateway.callContract("regen-ledger", "regen_toucan_bridge", abi.encode(p));
 
         // TODO
         // + burn (needs that functionality from the Toucan side)
