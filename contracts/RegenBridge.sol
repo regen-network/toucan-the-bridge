@@ -8,15 +8,15 @@ import "./Ownable.sol";
 import "./toucan-contracts/contracts/interfaces/IToucanContractRegistry.sol";
 import "./toucan-contracts/contracts/ToucanCarbonOffsets.sol";
 import "./axelar/IAxelarGateway.sol";
+import "./axelar/IAxelarExecutable.sol";
 
 /**
  * @dev Regen - Toucan TCO2 bridge handler impementing the The Bridge message standard.
  *
  * See README file for more information about the functionality
  */
-contract RegenBridge is Ownable, Pausable {
+contract RegenBridge is Ownable, Pausable, IAxelarExecutable {
     IToucanContractRegistry public nctoRegistry;
-    IAxelarGateway public axelarGateway;
 
     struct ToucanPayload {
         string recipient;
@@ -35,9 +35,8 @@ contract RegenBridge is Ownable, Pausable {
         address owner,
         IToucanContractRegistry _nctoRegistry,
         IAxelarGateway _axelarGateway
-    ) Ownable(owner) {
+    ) Ownable(owner) IAxelarExecutable(address(_axelarGateway)) {
         nctoRegistry = _nctoRegistry;
-        axelarGateway = _axelarGateway;
     }
 
     function pause() external onlyOwner {
@@ -70,11 +69,18 @@ contract RegenBridge is Ownable, Pausable {
         );
         tco2.retireFrom(msg.sender, amount);
         ToucanPayload memory p = ToucanPayload(recipient, address(tco2), amount, note);
-        axelarGateway.callContract("regen-ledger", "regen_toucan_bridge", abi.encode(p));
+        gateway.callContract("regen-ledger", "regen_toucan_bridge", abi.encode(p));
 
         // TODO
         // + burn (needs that functionality from the Toucan side)
     }
+
+    // handler to receive messages
+    function _execute(
+        string memory sourceChain,
+        string memory sourceAddress,
+        bytes calldata payload
+    ) internal override(IAxelarExecutable) {}
 
     function isRegenAddress(bytes memory recipient) internal pure returns (bool) {
         // verification: checking if recipient starts with "regen1"
