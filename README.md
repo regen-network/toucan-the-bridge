@@ -15,7 +15,8 @@ Regen Ledger credits are not Cosmos SDK bank denoms and they don't have a more s
 ## Setup
 
 ```shell
-git submodule sync
+git submodule init
+git submodule update
 pnpm install
 pnpm husky install
 ```
